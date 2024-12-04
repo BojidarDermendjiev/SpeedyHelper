@@ -149,7 +149,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .img {
     height: 65vh;
   }
@@ -168,5 +168,27 @@
 
   .results {
     font-size: 14px;
+  }
+
+  @media (max-width: 400px) {
+    .img {
+      height: 50vh;
+    }
+    .home {
+      padding: 10px;
+      margin: 1em auto;
+    }
+
+    .formField {
+      font-size: 0.9rem;
+    }
+
+    .submitButton {
+      padding: 8px 16px;
+    }
+
+    .results {
+      font-size: 12px;
+    }
   }
 }
