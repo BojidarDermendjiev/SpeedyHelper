@@ -145,7 +145,11 @@ const Home = () => {
               {inputValues.tenLvlInput} * 10 = {results.tenLvlValue}
             </span>
           </div>
-          <button type="submit" className={styles.submitButton}>
+          <button
+            type="button"
+            className={styles.submitButton}
+            onClick={() => window.location.reload()}
+          >
             {t("home.refresh")}
           </button>
         </form>
