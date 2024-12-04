@@ -1,0 +1,28 @@
+{
+  "header": {
+    "logoAlt": "Лого на Спиди",
+    "english": "Английски",
+    "bulgarian": "Български"
+  },
+  "home": {
+    "speedy": "Спиди",
+    "hundredLevel": "100 лв.",
+    "fiftyLevel": "50 лв.",
+    "twentyLevel": "20 лв.",
+    "tenLevel": "10 лв.",
+    "refresh": "Обнови",
+    "total": "Общо",
+    "finalTotalSpeedy": "ПП - Спиди",
+    "pleaseEnterValidNumbers": "Моля, въведете валидни числа във всички полета."
+  },
+  "footer": {
+    "logoAlt": "Лого на Спиди",
+    "aboutUs": "За нас",
+    "services": "Услуги",
+    "contact": "Контакт",
+    "terms": "Условия за ползване",
+    "customerService": "Обслужване на клиенти: 1-800-123-4567",
+    "email": "Имейл: support@speedy.bg",
+    "copyright": "&copy; {{year}} Спиди. Всички права запазени."
+  }
+}

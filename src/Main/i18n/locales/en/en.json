@@ -1,0 +1,28 @@
+{
+  "header": {
+    "logoAlt": "Speedy Logo",
+    "english": "English",
+    "bulgarian": "Bulgarian"
+  },
+  "home": {
+    "speedy": "Speedy",
+    "hundredLevel": "100 lv.",
+    "fiftyLevel": "50 lv.",
+    "twentyLevel": "20 lv",
+    "tenLevel": "10 lv.",
+    "refresh": "Refresh",
+    "total": "Total",
+    "finalTotalSpeedy": "Final Total - Speedy",
+    "pleaseEnterValidNumbers": "Please enter valid numbers in all fields."
+  },
+  "footer": {
+    "logoAlt": "Speedy Logo",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "terms": "Terms & Conditions",
+    "customerService": "Customer Service: 1-800-123-4567",
+    "email": "Email: support@speedy.bg",
+    "copyright": "&copy; {{year}} Speedy. All rights reserved."
+  }
+}

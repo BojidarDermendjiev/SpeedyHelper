@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.languageSelector {
+  display: flex;
+  gap: 10px;
+}
+
+.languageSelector button {
+  background-color: rgba(128, 128, 128, 0.376);
+  border: 1px solid #dddddd64;
+  padding: 1em 1em;
+  cursor: pointer;
+  border-radius: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.languageSelector button:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.05);
+}
+
+.languageSelector button:active {
+  background-color: #ff6666;
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .languageSelector {
+    margin-top: 10px;
+  }
+}

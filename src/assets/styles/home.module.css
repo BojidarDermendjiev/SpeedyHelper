@@ -1,0 +1,172 @@
+.img {
+  position: relative;
+  background-image: url("https://m4.netinfo.bg/media/images/50596/50596716/orig-orig-speedy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.805);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgb(111, 111, 111);
+  max-width: 600px;
+  width: 100%;
+  margin: 5em auto;
+  color: rgb(0, 0, 0);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.formField {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: black;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.formField::placeholder {
+  color: transparent;
+}
+
+.formField:placeholder-shown ~ .formLabel {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.formField:focus ~ .formLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: red;
+  font-weight: 700;
+}
+
+.formField:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, red, gray);
+  border-image-slice: 1;
+}
+
+.formField:required,
+.formField:invalid {
+  box-shadow: none;
+}
+
+.formField:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.formLabel {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: gray;
+}
+
+.result {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.submitButton {
+  padding: 12px 24px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submitButton:hover {
+  background-color: red;
+  transform: scale(1.05);
+}
+
+.results {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.errorModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+.errorModal p {
+  margin: 0 0 10px;
+  color: red;
+}
+
+.errorModal button {
+  padding: 10px 20px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .img {
+    height: 65vh;
+  }
+  .home {
+    padding: 10px;
+    margin: 2em auto;
+  }
+
+  .formField {
+    font-size: 1rem;
+  }
+
+  .submitButton {
+    padding: 10px 20px;
+  }
+
+  .results {
+    font-size: 14px;
+  }
+}
