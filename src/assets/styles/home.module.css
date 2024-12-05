@@ -151,6 +151,12 @@
 }
 
 @media (max-width: 768px) {
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+  }
   .home {
     padding: 10px;
     margin: 2em 2em;
@@ -175,21 +181,29 @@
   }
 
   .results {
-    font-size: 14px;
+    font-size: 1.2em;
   }
 }
 
 @media (max-width: 400px) {
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+  }
   .home {
     padding: 10px;
-    margin: 2em auto;
+    margin: 1em auto;
   }
-  .form {
-    margin: 10% 10%;
-  }
+
   .img {
     height: auto;
     max-width: 400px;
+  }
+
+  .form {
+    margin: 5% 5%;
   }
 
   .formField {
@@ -201,6 +215,6 @@
   }
 
   .results {
-    font-size: 12px;
+    font-size: 1.2em;
   }
 }
