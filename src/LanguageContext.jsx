@@ -1,9 +1,10 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
 export const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
+const LanguageProvider = ({ children }) => {
   const { i18n } = useTranslation();
   const [language, setLanguage] = useState(navigator.language);
 
@@ -22,3 +23,9 @@ export const LanguageProvider = ({ children }) => {
     </LanguageContext.Provider>
   );
 };
+
+LanguageProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default LanguageProvider;

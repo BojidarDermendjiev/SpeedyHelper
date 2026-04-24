@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageContext } from "./LanguageContext";
@@ -10,7 +10,8 @@ export default function Header() {
   const location = useLocation();
 
   const navLink = (path) =>
-    location.pathname === path || (path === "/home" && location.pathname === "/")
+    location.pathname === path ||
+    (path === "/home" && location.pathname === "/")
       ? styles.activeLink
       : styles.navLink;
 

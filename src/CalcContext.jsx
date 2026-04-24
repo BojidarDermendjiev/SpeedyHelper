@@ -1,8 +1,9 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
 export const CalcContext = createContext();
 
-export const CalcProvider = ({ children }) => {
+const CalcProvider = ({ children }) => {
   const [calcData, setCalcData] = useState({
     inputValues: {
       speedy: "",
@@ -29,3 +30,9 @@ export const CalcProvider = ({ children }) => {
     </CalcContext.Provider>
   );
 };
+
+CalcProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default CalcProvider;

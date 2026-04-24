@@ -42,110 +42,119 @@
   border-bottom: 2px solid #e63946;
 }
 
-/* ── Multiplication Tables ──────────────────────── */
-.tablesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.tableCard {
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.tableCardHeader {
-  background: #e63946;
-  color: white;
-  padding: 0.75rem;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.tableCardHeader[data-denom="100"] { background: #1d3557; }
-.tableCardHeader[data-denom="50"]  { background: #2d6a4f; }
-.tableCardHeader[data-denom="20"]  { background: #e76f51; }
-.tableCardHeader[data-denom="10"]  { background: #457b9d; }
-
-.multiplyTable {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.multiplyTable th {
-  background: #f1f3f5;
-  padding: 0.5rem;
-  text-align: center;
-  font-weight: 600;
-  color: #555;
-  border-bottom: 1px solid #dee2e6;
-}
-
-.multiplyTable td {
-  padding: 0.4rem 0.75rem;
-  text-align: center;
-  border-bottom: 1px solid #f1f3f5;
-}
-
-.highlight td {
-  background: #fff3f3;
-  font-weight: 600;
-}
-
-/* ── Common Amounts ─────────────────────────────── */
-.amountsTable {
-  overflow-x: auto;
-}
-
-.fullTable {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-}
-
-.fullTable th {
-  background: #e63946;
-  color: white;
-  padding: 0.75rem 1rem;
-  text-align: center;
-  font-weight: 600;
-}
-
-.fullTable td {
-  padding: 0.6rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid #f1f3f5;
-}
-
-.fullTable tr:hover td {
-  background: #fff3f3;
-}
-
-.amountCell {
-  font-weight: 700;
-  color: #333;
-}
-
-/* ── Counting Tips ──────────────────────────────── */
-.tipsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ── Email Contacts ─────────────────────────────── */
+.emailList {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
-.tip {
-  padding: 0.75rem 1rem;
-  background: #fff3f3;
+.emailRow {
+  border: 1px solid #dee2e6;
   border-left: 4px solid #e63946;
   border-radius: 0 8px 8px 0;
+  padding: 0.8rem 1rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.emailMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.emailPurpose {
+  font-weight: 600;
   color: #333;
   font-size: 0.95rem;
+  flex: 1;
+  min-width: 180px;
+}
+
+.emailActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.emailAddress {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: #555;
+  background: #f1f3f5;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+
+.actionBtn {
+  padding: 0.32rem 0.7rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.actionBtn:active {
+  transform: scale(0.95);
+}
+
+.copyBtn {
+  background: #f1f3f5;
+  color: #333;
+  border: 1px solid #dee2e6;
+}
+
+.copyBtn:hover {
+  background: #e9ecef;
+}
+
+.copied {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.composeBtn {
+  background: #e63946;
+  color: white;
+}
+
+.composeBtn:hover {
+  background: #c1121f;
+}
+
+.barcodeSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #dee2e6;
+}
+
+.barcodeInput {
+  flex: 1;
+  padding: 0.38rem 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: monospace;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.barcodeInput:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.15);
 }
 
 /* ── Keyboard Shortcuts Accordion ───────────────── */
@@ -239,14 +248,9 @@
 
 /* ── Responsive ─────────────────────────────────── */
 @media (max-width: 600px) {
-  .tablesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .fullTable th,
-  .fullTable td {
-    padding: 0.5rem 0.5rem;
-    font-size: 0.85rem;
+  .emailMain {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .shortcutTable th,
@@ -257,10 +261,6 @@
 }
 
 @media (max-width: 400px) {
-  .tablesGrid {
-    grid-template-columns: 1fr;
-  }
-
   .pageHeader h1 {
     font-size: 1.5rem;
   }

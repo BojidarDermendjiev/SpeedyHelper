@@ -93,13 +93,10 @@ const MindMap = () => {
               </div>
               <ul className={styles.leafList}>
                 <li className={styles.leaf}>
-                  <span className={styles.leafLabel}>{t("mindMap.currencyTables")}</span>
+                  <span className={styles.leafLabel}>{t("mindMap.emailContacts")}</span>
                 </li>
                 <li className={styles.leaf}>
-                  <span className={styles.leafLabel}>{t("mindMap.countingTips")}</span>
-                </li>
-                <li className={styles.leaf}>
-                  <span className={styles.leafLabel}>{t("mindMap.commonAmounts")}</span>
+                  <span className={styles.leafLabel}>{t("mindMap.keyboardShortcuts")}</span>
                 </li>
               </ul>
             </div>
