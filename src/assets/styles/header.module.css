@@ -2,22 +2,63 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 16px 28px;
   background-color: #ffffff;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 2px solid #e0e0e0;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 70px;
+}
+
+.logo img {
+  height: 52px;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #555;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+  background-color: rgba(128, 128, 128, 0.15);
+  color: #333;
+}
+
+.activeLink {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: #e63946;
+  color: white;
+  font-size: 1rem;
 }
 
 .languageSelector {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .languageSelector button {
   background-color: rgba(128, 128, 128, 0.376);
   border: 1px solid #dddddd64;
-  padding: 1em 1em;
+  padding: 0.5em 1em;
   cursor: pointer;
   border-radius: 1em;
+  font-size: 0.9rem;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -35,32 +76,29 @@
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 10px;
   }
 
   .nav {
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    width: 100%;
   }
 
   .languageSelector {
-    margin-top: 10px;
+    justify-content: center;
   }
-  @media (max-width: 400px) {
-    .header {
-      flex-direction: column;
-      align-items: center;
-      padding: 5px 10px;
-    }
+}
 
-    .languageSelector {
-      flex-direction: column;
-      gap: 5px;
-      margin-top: 10px;
-    }
+@media (max-width: 400px) {
+  .navLink,
+  .activeLink {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.55rem;
+  }
 
-    .languageSelector button {
-      padding: 0.5em 1em;
-    }
+  .languageSelector button {
+    padding: 0.4em 0.75em;
+    font-size: 0.8rem;
   }
 }

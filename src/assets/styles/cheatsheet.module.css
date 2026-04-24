@@ -1,0 +1,271 @@
+.page {
+  min-height: calc(100vh - 120px);
+  background: #f8f9fa;
+  padding: 2rem 1rem 3rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pageHeader h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 0.5rem;
+}
+
+.pageHeader p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  color: #e63946;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e63946;
+}
+
+/* ── Multiplication Tables ──────────────────────── */
+.tablesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.tableCard {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableCardHeader {
+  background: #e63946;
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.tableCardHeader[data-denom="100"] { background: #1d3557; }
+.tableCardHeader[data-denom="50"]  { background: #2d6a4f; }
+.tableCardHeader[data-denom="20"]  { background: #e76f51; }
+.tableCardHeader[data-denom="10"]  { background: #457b9d; }
+
+.multiplyTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.multiplyTable th {
+  background: #f1f3f5;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.multiplyTable td {
+  padding: 0.4rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.highlight td {
+  background: #fff3f3;
+  font-weight: 600;
+}
+
+/* ── Common Amounts ─────────────────────────────── */
+.amountsTable {
+  overflow-x: auto;
+}
+
+.fullTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fullTable th {
+  background: #e63946;
+  color: white;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.fullTable td {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.fullTable tr:hover td {
+  background: #fff3f3;
+}
+
+.amountCell {
+  font-weight: 700;
+  color: #333;
+}
+
+/* ── Counting Tips ──────────────────────────────── */
+.tipsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tip {
+  padding: 0.75rem 1rem;
+  background: #fff3f3;
+  border-left: 4px solid #e63946;
+  border-radius: 0 8px 8px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* ── Keyboard Shortcuts Accordion ───────────────── */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.accordionItem {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.accordionHeader:hover {
+  background: #f0f0f0;
+}
+
+.accordionOpen {
+  background: #e63946;
+  color: white;
+}
+
+.accordionOpen:hover {
+  background: #c1121f;
+}
+
+.chevron {
+  font-size: 0.75rem;
+}
+
+.accordionBody {
+  padding: 0.5rem 0;
+  overflow-x: auto;
+}
+
+.shortcutTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.shortcutTable th {
+  background: #f1f3f5;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.shortcutTable td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #f8f9fa;
+  vertical-align: middle;
+}
+
+.shortcutTable tr:hover td {
+  background: #fff3f3;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  font-size: 0.85em;
+  font-family: monospace;
+  background: #f8f9fa;
+  border: 1px solid #adb5bd;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 600px) {
+  .tablesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fullTable th,
+  .fullTable td {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .shortcutTable th,
+  .shortcutTable td {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tablesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pageHeader h1 {
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+}

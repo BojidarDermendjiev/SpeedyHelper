@@ -1,100 +1,164 @@
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: #ffffff;
-  text-align: center;
   background-color: #ffffff;
-  padding: 20px;
-  text-align: center;
-  bottom: 0;
+  border-top: 1px solid #d0d0d0;
   width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.footerContent {
+.footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 16px;
+}
+
+/* ── Main row ─────────────────────────────────────── */
+.footerMain {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 14px;
 }
 
-.footerLogo img {
-  width: 150px;
+/* ── Logo / GeoPost badge ─────────────────────────── */
+.logoGroup {
+  display: flex;
+  align-items: center;
+}
+
+.networkBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.networkLabel {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #555;
+  line-height: 1.3;
+  text-align: right;
+}
+
+.badgeDivider {
+  width: 1px;
+  height: 36px;
+  background-color: #bbb;
+}
+
+.geopostLogo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.geopostSymbol {
+  width: 28px;
+  height: 20px;
+}
+
+.geopostName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+/* ── Copyright ────────────────────────────────────── */
+.copyright {
+  font-size: 0.875rem;
+  color: #444;
+}
+
+/* ── Social ───────────────────────────────────────── */
+.social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.followLabel {
+  font-size: 0.875rem;
+  color: #e63946;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialIcons a {
+  color: #444;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.socialIcons a:hover {
+  color: #e63946;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Links row ────────────────────────────────────── */
+.footerLinks {
+  padding-top: 12px;
+  border-top: 1px solid #ebebeb;
+  font-size: 0.8rem;
 }
 
 .footerLinks a {
-  margin: 0 10px;
+  color: #444;
   text-decoration: none;
-  color: #333;
 }
 
-.footerContact p {
-  margin: 5px 0;
+.footerLinks a:hover {
+  text-decoration: underline;
+  color: #e63946;
 }
 
-.footerSocial a {
-  margin: 0 10px;
+.dot {
+  color: #888;
 }
 
-.footerSocial img {
-  width: 30px;
-}
-
-.footerBottom {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #777;
-}
-
+/* ── Responsive ───────────────────────────────────── */
 @media (max-width: 768px) {
-  .footer {
-    position: relative;
-  }
-  .footerContent {
+  .footerMain {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: 14px;
   }
 
-  .footerLinks {
-    margin-top: 10px;
+  .social {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .footerInner {
+    padding: 16px;
   }
 
-  .footerContact {
-    margin-top: 10px;
+  .geopostName {
+    font-size: 0.9rem;
   }
-  @media (max-width: 400px) {
-    .footer {
-      position: relative;
-    }
-    .footerContent {
-      flex-direction: column;
-      align-items: center;
-    }
 
-    .footerLogo img {
-      width: 100px;
-    }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
 
-    .footerLinks {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .footerLinks a {
-      margin: 5px 0;
-    }
-
-    .footerContact {
-      margin-top: 10px;
-    }
-
-    .footerBottom {
-      font-size: 12px;
-    }
+  .socialIcons {
+    gap: 8px;
   }
 }

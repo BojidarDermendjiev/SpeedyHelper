@@ -1,63 +1,77 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./assets/styles/home.module.css";
+import { CalcContext } from "./CalcContext";
 
 const Home = () => {
   const { t } = useTranslation();
+  const { setCalcData } = useContext(CalcContext);
 
   const [inputValues, setInputValues] = useState({
     speedy: "",
+    twoHundredLvlInput: "",
     hundredLvlInput: "",
     fiftyLvlInput: "",
-    twelveLvlInput: "",
+    twentyLvlInput: "",
     tenLvlInput: "",
   });
+
   const [results, setResults] = useState({
+    twoHundredLvlValue: 0,
     hundredLvlValue: 0,
     fiftyLvlValue: 0,
-    twelveLvlValue: 0,
+    twentyLvlValue: 0,
     tenLvlValue: 0,
     total: 0,
   });
-  const [error, setError] = useState("");
 
   const calculateResults = (values) => {
-    const value1 = parseFloat(values.hundredLvlInput);
-    const value2 = parseFloat(values.fiftyLvlInput);
-    const value3 = parseFloat(values.twelveLvlInput);
-    const value4 = parseFloat(values.tenLvlInput);
+    const v200 = parseFloat(values.twoHundredLvlInput) || 0;
+    const v100 = parseFloat(values.hundredLvlInput) || 0;
+    const v50  = parseFloat(values.fiftyLvlInput)  || 0;
+    const v20  = parseFloat(values.twentyLvlInput) || 0;
+    const v10  = parseFloat(values.tenLvlInput)    || 0;
 
-    if (isNaN(value1) || isNaN(value2) || isNaN(value3) || isNaN(value4)) {
-      setError(t("home.pleaseEnterValidNumbers"));
-      return;
-    }
+    const twoHundredLvlValue = v200 * 200;
+    const hundredLvlValue    = v100 * 100;
+    const fiftyLvlValue      = v50  * 50;
+    const twentyLvlValue     = v20  * 20;
+    const tenLvlValue        = v10  * 10;
+    const total = twoHundredLvlValue + hundredLvlValue + fiftyLvlValue + twentyLvlValue + tenLvlValue;
 
-    const hundredLvlValue = value1 * 100;
-    const fiftyLvlValue = value2 * 50;
-    const twelveLvlValue = value3 * 20;
-    const tenLvlValue = value4 * 10;
-    const total =
-      hundredLvlValue + fiftyLvlValue + twelveLvlValue + tenLvlValue;
-
-    setResults({
-      hundredLvlValue,
-      fiftyLvlValue,
-      twelveLvlValue,
-      tenLvlValue,
-      total,
-    });
-    setError("");
+    const newResults = { twoHundredLvlValue, hundredLvlValue, fiftyLvlValue, twentyLvlValue, tenLvlValue, total };
+    setResults(newResults);
+    setCalcData({ inputValues: values, results: newResults, hasData: true });
   };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    const newValues = {
-      ...inputValues,
-      [id]: value,
-    };
+    const newValues = { ...inputValues, [id]: value };
     setInputValues(newValues);
     calculateResults(newValues);
   };
+
+  const handleRefresh = () => {
+    const empty = {
+      speedy: "",
+      twoHundredLvlInput: "",
+      hundredLvlInput: "",
+      fiftyLvlInput: "",
+      twentyLvlInput: "",
+      tenLvlInput: "",
+    };
+    setInputValues(empty);
+    setResults({ twoHundredLvlValue: 0, hundredLvlValue: 0, fiftyLvlValue: 0, twentyLvlValue: 0, tenLvlValue: 0, total: 0 });
+    setCalcData({ inputValues: empty, results: { twoHundredLvlValue: 0, hundredLvlValue: 0, fiftyLvlValue: 0, twentyLvlValue: 0, tenLvlValue: 0, total: 0 }, hasData: false });
+  };
+
+  const fields = [
+    { id: "twoHundredLvlInput", label: t("home.twoHundredLevel"), multiplier: 200, value: results.twoHundredLvlValue },
+    { id: "hundredLvlInput",    label: t("home.hundredLevel"),    multiplier: 100, value: results.hundredLvlValue },
+    { id: "fiftyLvlInput",      label: t("home.fiftyLevel"),      multiplier: 50,  value: results.fiftyLvlValue },
+    { id: "twentyLvlInput",     label: t("home.twentyLevel"),     multiplier: 20,  value: results.twentyLvlValue },
+    { id: "tenLvlInput",        label: t("home.tenLevel"),        multiplier: 10,  value: results.tenLvlValue },
+  ];
 
   return (
     <div className={styles.img}>
@@ -71,98 +85,44 @@ const Home = () => {
               id="speedy"
               value={inputValues.speedy}
               onChange={handleChange}
-              required
             />
             <label htmlFor="speedy" className={styles.formLabel}>
               {t("home.speedy")}
             </label>
           </div>
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              className={styles.formField}
-              placeholder={t("home.hundredLevel")}
-              id="hundredLvlInput"
-              value={inputValues.hundredLvlInput}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="hundredLvlInput" className={styles.formLabel}>
-              {t("home.hundredLevel")}
-            </label>
-            <span className={styles.result}>
-              {inputValues.hundredLvlInput} * 100 = {results.hundredLvlValue}
-            </span>
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              className={styles.formField}
-              placeholder={t("home.fiftyLevel")}
-              id="fiftyLvlInput"
-              value={inputValues.fiftyLvlInput}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="fiftyLvlInput" className={styles.formLabel}>
-              {t("home.fiftyLevel")}
-            </label>
-            <span className={styles.result}>
-              {inputValues.fiftyLvlInput} * 50 = {results.fiftyLvlValue}
-            </span>
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              className={styles.formField}
-              placeholder={t("home.twentyLevel")}
-              id="twelveLvlInput"
-              value={inputValues.twelveLvlInput}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="twelveLvlInput" className={styles.formLabel}>
-              {t("home.twentyLevel")}
-            </label>
-            <span className={styles.result}>
-              {inputValues.twelveLvlInput} * 20 = {results.twelveLvlValue}
-            </span>
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              className={styles.formField}
-              placeholder={t("home.tenLevel")}
-              id="tenLvlInput"
-              value={inputValues.tenLvlInput}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="tenLvlInput" className={styles.formLabel}>
-              {t("home.tenLevel")}
-            </label>
-            <span className={styles.result}>
-              {inputValues.tenLvlInput} * 10 = {results.tenLvlValue}
-            </span>
-          </div>
-          <button
-            type="button"
-            className={styles.submitButton}
-            onClick={() => window.location.reload()}
-          >
+
+          {fields.map(({ id, label, multiplier, value }) => (
+            <div key={id} className={styles.formGroup}>
+              <input
+                type="number"
+                className={styles.formField}
+                placeholder={label}
+                id={id}
+                value={inputValues[id]}
+                onChange={handleChange}
+              />
+              <label htmlFor={id} className={styles.formLabel}>
+                {label}
+              </label>
+              {inputValues[id] !== "" && (
+                <span className={styles.result}>
+                  {inputValues[id]} * {multiplier} = {value}
+                </span>
+              )}
+            </div>
+          ))}
+
+          <button type="button" className={styles.submitButton} onClick={handleRefresh}>
             {t("home.refresh")}
           </button>
         </form>
+
         <div className={styles.results}>
-          <p>
-            {t("home.speedy")}: {inputValues.speedy}
-          </p>
-          <p>
-            {t("home.total")}: {results.total}
-          </p>
+          <p>{t("home.speedy")}: {inputValues.speedy}</p>
+          <p>{t("home.total")}: {results.total}</p>
           <p>
             {t("home.finalTotalSpeedy")}:{" "}
-            {results.total - parseFloat(inputValues.speedy || 0)}
+            {results.total - (parseFloat(inputValues.speedy) || 0)}
           </p>
         </div>
       </div>
