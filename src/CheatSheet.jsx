@@ -21,7 +21,11 @@ const CITIES = [
   { value: "kyustendil", labelBg: "Кюстендил", labelEn: "Kyustendil" },
   { value: "lovech", labelBg: "Ловеч", labelEn: "Lovech" },
   { value: "gabrovo", labelBg: "Габрово", labelEn: "Gabrovo" },
-  { value: "veliko-tarnovo", labelBg: "Велико Търново", labelEn: "Veliko Tarnovo" },
+  {
+    value: "veliko-tarnovo",
+    labelBg: "Велико Търново",
+    labelEn: "Veliko Tarnovo",
+  },
   { value: "vidin", labelBg: "Видин", labelEn: "Vidin" },
   { value: "montana", labelBg: "Монтана", labelEn: "Montana" },
   { value: "vratsa", labelBg: "Враца", labelEn: "Vratsa" },
@@ -225,8 +229,7 @@ const CheatSheet = () => {
       cityDependent: true,
       subjectBg:
         "Заявка за нулиране – Регионален мениджър – Товарителница: {waybill}",
-      subjectEn:
-        "Reset delivery – Regional Manager – Waybill: {waybill}",
+      subjectEn: "Reset delivery – Regional Manager – Waybill: {waybill}",
       bodyBg:
         "Здравейте,\n\nМоля Ви да съдействате за нулиране на следната доставка:\n\nТоварителница: {waybill}\n\nС уважение,",
       bodyEn:
@@ -302,8 +305,7 @@ const CheatSheet = () => {
       purposeBg: "ЗПАУ – Предишен административен доклад",
       subjectBg:
         "ЗПАУ – Предишен административен доклад – Товарителница: {waybill}",
-      subjectEn:
-        "ZPAU – Previous administrative report – Waybill: {waybill}",
+      subjectEn: "ZPAU – Previous administrative report – Waybill: {waybill}",
       bodyBg:
         "Здравейте,\n\nПодаваме заявка за предишен административен доклад (ЗПАУ):\n\nТоварителница: {waybill}\nДата на инцидента: \nОписание: \n\nС уважение,",
       bodyEn:
@@ -402,9 +404,7 @@ const CheatSheet = () => {
                     <div className={styles.emailActions}>
                       {needsCity ? (
                         <span className={styles.noCityText}>
-                          {isBg
-                            ? "Изберете град по-горе"
-                            : "Select city above"}
+                          {isBg ? "Изберете град по-горе" : "Select city above"}
                         </span>
                       ) : notConfigured ? (
                         <span className={styles.noCityText}>
