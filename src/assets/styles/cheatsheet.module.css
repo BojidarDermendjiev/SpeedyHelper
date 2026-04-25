@@ -42,6 +42,71 @@
   border-bottom: 2px solid #e63946;
 }
 
+/* ── Email Controls (city + waybill) ────────────── */
+.emailControls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #dee2e6;
+  flex-wrap: wrap;
+}
+
+.citySelector,
+.waybillRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 240px;
+}
+
+.controlLabel {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+}
+
+.citySelect {
+  flex: 1;
+  padding: 0.42rem 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.citySelect:focus {
+  border-color: #e63946;
+  box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.15);
+}
+
+.waybillInput {
+  flex: 1;
+  padding: 0.42rem 0.75rem;
+  border: 2px solid #e63946;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: monospace;
+  outline: none;
+  background: #fff8f8;
+  transition: box-shadow 0.15s;
+}
+
+.waybillInput:focus {
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+}
+
+.noCityText {
+  font-style: italic;
+  color: #aaa;
+  font-size: 0.82rem;
+}
+
 /* ── Email Contacts ─────────────────────────────── */
 .emailList {
   display: flex;
@@ -132,30 +197,6 @@
   background: #c1121f;
 }
 
-.barcodeSection {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px dashed #dee2e6;
-}
-
-.barcodeInput {
-  flex: 1;
-  padding: 0.38rem 0.75rem;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-family: monospace;
-  outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-.barcodeInput:focus {
-  border-color: #e63946;
-  box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.15);
-}
 
 /* ── Keyboard Shortcuts Accordion ───────────────── */
 .accordion {
